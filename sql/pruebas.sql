@@ -79,3 +79,16 @@ select * from mesa m where id_recinto=688 order by numero_mesa ASC;
 select * from sp_app_limpiar_mesa(5624);
 update mesa set bandera_usuario_asignado=null,bandera_apertura=null where id=5624;
 
+
+
+
+5b3648
+
+select * from parametros p2 ;
+select * from partido order by id;
+
+
+
+
+
+

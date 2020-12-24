@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "elecciones_sub_2021_app_backend_core", "elecciones_sub_2021_app_backend_core.csproj", "{81E7CD2B-ABFA-4CDD-B968-73F216355153}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81E7CD2B-ABFA-4CDD-B968-73F216355153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81E7CD2B-ABFA-4CDD-B968-73F216355153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81E7CD2B-ABFA-4CDD-B968-73F216355153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81E7CD2B-ABFA-4CDD-B968-73F216355153}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1F2E539-F92D-41AE-90EB-A53C574E33D0}
+	EndGlobalSection
+EndGlobal
