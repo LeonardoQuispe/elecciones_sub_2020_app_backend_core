@@ -17,8 +17,8 @@ declare
 begin
     
 	--INSERTA DATOS}
-	insert into comentario(nombre,carnet,comentario) 
-	values (trim(_nombre),_carnet,trim(_comentario));	
+	insert into comentario(nombre,carnet,comentario,fecha_registro) 
+	values (trim(_nombre),_carnet,trim(_comentario),current_timestamp);	
 	------Valida si se afectaron filas----------------
 	GET DIAGNOSTICS filasAfectadas = ROW_COUNT;	
 	if filasAfectadas = 0 then
