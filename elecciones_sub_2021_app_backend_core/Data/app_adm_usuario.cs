@@ -3,10 +3,11 @@ using Dapper;
 using System;
 using System.Data;
 using System.Threading.Tasks;
+using elecciones_sub_2021_app_backend_core.Interfaces;
 
 namespace elecciones_sub_2021_app_backend_core.Data
 {
-    public class app_adm_usuario
+    public class app_adm_usuario: Iapp_adm_usuario
     {
         c_conexion _c_conexion = new c_conexion();
         public async Task<AppRespuestaCore> login(string usuario, string contrasena)

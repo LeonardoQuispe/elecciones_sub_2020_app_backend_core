@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using System.Collections.Generic;
+using elecciones_sub_2021_app_backend_core.Interfaces;
 
 namespace elecciones_sub_2021_app_backend_core.Controllers
 {
@@ -20,10 +21,12 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
     {
         // private readonly IAzureBlobService _azureBlobService;
         private IWebHostEnvironment _env; 
+        private readonly Iapp_conteo _app_conteo;
 
-        public AppConteoController(IWebHostEnvironment env)
+        public AppConteoController(IWebHostEnvironment env, Iapp_conteo app_conteo)
         {
             _env = env;
+            this._app_conteo = app_conteo;
         }
         // public AppConteoController(IAzureBlobService azureBlobService)
         // {
@@ -36,7 +39,6 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
         {
             AppRespuestaCore respuestaCore = new  AppRespuestaCore();
             AppRespuestaBD respuestaBD = new  AppRespuestaBD();
-            app_conteo _app_conteo = new app_conteo();
 
             try
             {
@@ -44,7 +46,7 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
                 {
                     
                     // respuestaBD = await _app_conteo.guardar(datos, this._azureBlobService);
-                    respuestaBD = await _app_conteo.guardar(datos, this._env);
+                    respuestaBD = await this._app_conteo.guardar(datos, this._env);
 
                     if (respuestaBD.status == "error")
                     {
@@ -111,7 +113,6 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
         [HttpGet("traer_imagen_acta")]
         public async Task<ActionResult<object>> traer_imagen_acta(string nombre_imagen_acta)
         {
-            app_conteo _app_conteo = new app_conteo();
             AppRespuestaCore respuestaCore;
 
             try
@@ -122,7 +123,7 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
                 var filePath = Path.Combine(uploads, nombre_imagen_acta);
                 byte[] fileBytes = await System.IO.File.ReadAllBytesAsync(filePath);
 
-                // byte[] _datos = await _app_conteo.traer_imagen_acta(nombre_imagen_acta);
+                // byte[] _datos = await this._app_conteo.traer_imagen_acta(nombre_imagen_acta);
                 string mimeType = MimeTypesMap.GetMimeType(nombre_imagen_acta);
                 
                 return File(fileBytes, mimeType, nombre_imagen_acta);              
@@ -172,12 +173,11 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
         public async Task<ActionResult<AppRespuestaCore>> listado_partidos()
         {
             IEnumerable<Partido> arrayDatos = new Partido[] { };;
-            app_conteo _app_conteo = new app_conteo();
             AppRespuestaCore respuestaCore = new  AppRespuestaCore();
 
             try
             {
-                arrayDatos = await _app_conteo.listado_partidos();
+                arrayDatos = await this._app_conteo.listado_partidos();
 
                 respuestaCore = new AppRespuestaCore
                 {
@@ -200,7 +200,6 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
         [HttpGet("traer_logo_partido/{nombre_logo_partido}")]
         public async Task<ActionResult<object>> traer_logo_partido(string nombre_logo_partido)
         {
-            app_conteo _app_conteo = new app_conteo();
             AppRespuestaCore respuestaCore;
 
             try
@@ -211,7 +210,7 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
                 var filePath = Path.Combine(uploads, nombre_logo_partido);
                 byte[] fileBytes = await System.IO.File.ReadAllBytesAsync(filePath);
 
-                // byte[] _datos = await _app_conteo.traer_imagen_acta(nombre_imagen_acta);
+                // byte[] _datos = await this._app_conteo.traer_imagen_acta(nombre_imagen_acta);
                 string mimeType = MimeTypesMap.GetMimeType(nombre_logo_partido);
                 
                 return File(fileBytes, mimeType, nombre_logo_partido);              

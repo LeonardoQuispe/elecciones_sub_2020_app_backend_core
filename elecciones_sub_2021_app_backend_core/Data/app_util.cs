@@ -3,12 +3,12 @@ using Dapper;
 using System;
 using System.Data;
 using System.Threading.Tasks;
-using System.Net.Http;
 using Microsoft.Extensions.Configuration;
+using elecciones_sub_2021_app_backend_core.Interfaces;
 
 namespace elecciones_sub_2021_app_backend_core.Data
 {
-    public class app_util
+    public class app_util: Iapp_util
     {
         c_conexion _c_conexion = new c_conexion();
         private IConfiguration appSettingsInstance;

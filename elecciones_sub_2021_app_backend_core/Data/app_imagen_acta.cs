@@ -4,10 +4,11 @@ using Microsoft.AspNetCore.Http;
 using System;
 using System.Data;
 using System.Threading.Tasks;
+using elecciones_sub_2021_app_backend_core.Interfaces;
 
 namespace elecciones_sub_2021_app_backend_core.Data
 {
-    public class app_imagen_acta
+    public class app_imagen_acta: Iapp_imagen_acta
     {
         c_conexion _c_conexion = new c_conexion();
         public async Task<AppRespuestaBD> guardar(IFormFile imagen, long idMesa)
@@ -89,10 +90,6 @@ namespace elecciones_sub_2021_app_backend_core.Data
                 throw ex;
             }
         }
-
-
-
-
     }
 
 }

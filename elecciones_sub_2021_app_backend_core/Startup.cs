@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using elecciones_sub_2021_app_backend_core.Services;
 
 namespace elecciones_sub_2021_app_backend_core
 {
@@ -22,6 +23,8 @@ namespace elecciones_sub_2021_app_backend_core
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            // Agregando dependencias service
+            IoC.AddDependency(services);
             //// agregando azure 
             //services.AddSingleton<IAzureBlobConnectionFactory, AzureBlobConnectionFactory>();
             //services.AddSingleton<IAzureBlobService, AzureBlobService>();

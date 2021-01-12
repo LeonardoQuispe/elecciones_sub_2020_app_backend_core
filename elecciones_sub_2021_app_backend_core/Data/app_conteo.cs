@@ -10,19 +10,24 @@ using System.Net.Http;
 using elecciones_sub_2021_app_backend_core.Services;
 using Microsoft.AspNetCore.Hosting;
 using System.Collections.Generic;
+using elecciones_sub_2021_app_backend_core.Interfaces;
 
 namespace elecciones_sub_2021_app_backend_core.Data
 {
-    public class app_conteo
+    public class app_conteo: Iapp_conteo
     {
         c_conexion _c_conexion = new c_conexion();
         private IConfiguration appSettingsInstance;
+        private readonly Iapp_mesa _app_mesa;
+        private readonly Iapp_imagen_acta _app_imagen_acta;
 
-        public app_conteo()
+        public app_conteo(Iapp_mesa app_mesa, Iapp_imagen_acta app_imagen_acta)
         {            
             appSettingsInstance = new ConfigurationBuilder()
                                     // .SetBasePath(Directory.GetCurrentDirectory())
                                     .AddJsonFile("appsettings.json").Build();
+            this._app_mesa = app_mesa;
+            this._app_imagen_acta = app_imagen_acta;
         }
         // public async Task<AppRespuestaBD> guardar(AppPostConteoPartido datos, IAzureBlobService azureBlobService)
         public async Task<AppRespuestaBD> guardar(AppPostConteoPartido datos, IWebHostEnvironment env)
@@ -30,8 +35,6 @@ namespace elecciones_sub_2021_app_backend_core.Data
             try
             {
                 AppRespuestaBD respuesta = new AppRespuestaBD();
-                app_imagen_acta _app_imagen_acta = new app_imagen_acta();
-                app_mesa _app_mesa = new app_mesa();
                 string nombreFuncion;
 
                 if (datos.id_rol == (long)ArrayRolUsuario.JefeRecinto || datos.id_rol == (long)ArrayRolUsuario.JefeRecintoEXTERIOR)
@@ -43,7 +46,7 @@ namespace elecciones_sub_2021_app_backend_core.Data
                     datos.mesa.bandera_validado_jefe_recinto = false;
                 }
                 datos.mesa.id_estado_mesa = (long)EstadoMesaEnum.Llenada;
-                respuesta = await _app_mesa.guardar(datos.mesa);
+                respuesta = await this._app_mesa.guardar(datos.mesa);
                 if (respuesta.status != "success")
                 {
                     return respuesta;
@@ -51,11 +54,11 @@ namespace elecciones_sub_2021_app_backend_core.Data
 
                 if (datos.id_imagen_acta == 0)
                 {
-                    respuesta = await _app_imagen_acta.guardar(datos.foto_acta, datos.mesa.id_mesa);
+                    respuesta = await this._app_imagen_acta.guardar(datos.foto_acta, datos.mesa.id_mesa);
                 } 
                 else 
                 {
-                    respuesta = await _app_imagen_acta.modificar(datos.foto_acta, datos.mesa.id_mesa);
+                    respuesta = await this._app_imagen_acta.modificar(datos.foto_acta, datos.mesa.id_mesa);
                 }
                 if (respuesta.status != "success")
                 {

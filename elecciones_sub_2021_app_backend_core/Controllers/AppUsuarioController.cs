@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using elecciones_sub_2021_app_backend_core.Data;
 using elecciones_sub_2021_app_backend_core.Models;
 using Microsoft.IdentityModel.Tokens;
+using elecciones_sub_2021_app_backend_core.Interfaces;
 
 namespace elecciones_sub_2021_app_backend_core.Controllers
 {
@@ -18,19 +19,20 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
     public class AppUsuarioController : ControllerBase
     {
         private readonly IConfiguration _configuration;
-        public AppUsuarioController(IConfiguration configuration) {
+        private readonly Iapp_adm_usuario _app_adm_usuario;
+        public AppUsuarioController(IConfiguration configuration, Iapp_adm_usuario app_adm_usuario) {
             _configuration = configuration;
+            this._app_adm_usuario = app_adm_usuario;
         }
         [Route("login")]
         [HttpPost]
         public async Task<ActionResult<AppRespuestaCore>> login([FromBody]AppUsuarioPost usuario)
         {
             AppRespuestaCore respuestaCore = new  AppRespuestaCore();
-            app_adm_usuario _app_adm_usuario = new app_adm_usuario();
 
             try
             {
-                AppRespuestaCore _usuarioLogin = await _app_adm_usuario.login(usuario.usuario, usuario.contrasena);
+                AppRespuestaCore _usuarioLogin = await this._app_adm_usuario.login(usuario.usuario, usuario.contrasena);
                 if (_usuarioLogin.status == "success") { 
                     _usuarioLogin.token =  GenerateToken(_usuarioLogin.response);
                 }
@@ -54,12 +56,11 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
         public async Task<ActionResult<AppRespuestaCore>> traer_usuario_mesa(long id_mesa)
         {
             AsignarUsuario _datos = new AsignarUsuario{};
-            app_adm_usuario _app_adm_usuario = new app_adm_usuario();
             AppRespuestaCore respuestaCore = new  AppRespuestaCore();
 
             try
             {
-                _datos = await _app_adm_usuario.traer_usuario_mesa(id_mesa);
+                _datos = await this._app_adm_usuario.traer_usuario_mesa(id_mesa);
                 if (_datos != null)
                 {
                     _datos.contrasena = Encoding.UTF8.GetString(_datos.contrasena, 0, _datos.contrasena.Length);
@@ -91,13 +92,12 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
         {
             AppRespuestaCore respuestaCore = new  AppRespuestaCore();
             AppRespuestaBD respuestaBD = new  AppRespuestaBD();
-            app_adm_usuario _app_adm_usuario = new app_adm_usuario();
 
             try
             {
                 using (TransactionScope _transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
                 {
-                    respuestaBD = await _app_adm_usuario.registrar_usuario_recinto(datos);
+                    respuestaBD = await this._app_adm_usuario.registrar_usuario_recinto(datos);
                     if (respuestaBD.status == "error")
                     {
                         respuestaCore = new AppRespuestaCore
@@ -136,13 +136,12 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
         {
             AppRespuestaCore respuestaCore = new  AppRespuestaCore();
             AppRespuestaBD respuestaBD = new  AppRespuestaBD();
-            app_adm_usuario _app_adm_usuario = new app_adm_usuario();
 
             try
             {
                 using (TransactionScope _transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
                 {
-                    respuestaBD = await _app_adm_usuario.asignar_usuario_mesa(datos);
+                    respuestaBD = await this._app_adm_usuario.asignar_usuario_mesa(datos);
                     if (respuestaBD.status == "error")
                     {
                         respuestaCore = new AppRespuestaCore

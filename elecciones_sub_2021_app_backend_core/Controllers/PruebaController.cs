@@ -26,7 +26,7 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
         {
             // string cuenta = User.FindFirst(ClaimTypes.Name).Value;
             // string id = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            return new OkObjectResult("TODO ESTA BIEN: " + "cuenta" + "-" + "id" );
+            return new OkObjectResult("TODO ESTA BIEN: V2.1" + "cuenta" + "-" + "id" );
         }
     }
 }

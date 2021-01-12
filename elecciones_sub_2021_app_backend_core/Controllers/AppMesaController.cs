@@ -6,6 +6,7 @@ using elecciones_sub_2021_app_backend_core.Data;
 using elecciones_sub_2021_app_backend_core.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using elecciones_sub_2021_app_backend_core.Interfaces;
 
 namespace elecciones_sub_2021_app_backend_core.Controllers
 {
@@ -14,19 +15,25 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
     [ApiController]
     public class AppMesaController : ControllerBase
     {
+        private readonly Iapp_mesa _app_mesa;
+
+        public AppMesaController(Iapp_mesa app_mesa)
+        {
+            this._app_mesa = app_mesa;
+        }
+
         [Authorize]
         [Route("listar_mesa_recinto")]
         [HttpGet]
         public async Task<ActionResult<AppRespuestaCore>> listar_mesa_recinto()
         {
             AppMesaRecintoListado _datos = new AppMesaRecintoListado();
-            app_mesa _app_mesa = new app_mesa();
             AppRespuestaCore respuestaCore = new  AppRespuestaCore();
             string idUsuario = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             try
             {
-                _datos = await _app_mesa.listar_mesa_recinto(long.Parse(idUsuario));
+                _datos = await this._app_mesa.listar_mesa_recinto(long.Parse(idUsuario));
 
                 respuestaCore = new AppRespuestaCore
                 {
@@ -53,13 +60,12 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
         {
             AppRespuestaCore respuestaCore = new  AppRespuestaCore();
             AppRespuestaBD respuestaBD = new  AppRespuestaBD();
-            app_mesa _app_mesa = new app_mesa();
 
             try
             {
                 using (TransactionScope _transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
                 {
-                    respuestaBD = await _app_mesa.aperturar_mesa(datos);
+                    respuestaBD = await this._app_mesa.aperturar_mesa(datos);
                     if (respuestaBD.status == "error")
                     {
                         respuestaCore = new AppRespuestaCore
@@ -97,13 +103,12 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
         {
             AppRespuestaCore respuestaCore = new  AppRespuestaCore();
             AppRespuestaBD respuestaBD = new  AppRespuestaBD();
-            app_mesa _app_mesa = new app_mesa();
 
             try
             {
                 using (TransactionScope _transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
                 {
-                    respuestaBD = await _app_mesa.anular_mesa(datos);
+                    respuestaBD = await this._app_mesa.anular_mesa(datos);
                     if (respuestaBD.status == "error")
                     {
                         respuestaCore = new AppRespuestaCore
@@ -142,13 +147,12 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
         {
             AppRespuestaCore respuestaCore = new  AppRespuestaCore();
             AppRespuestaBD respuestaBD = new  AppRespuestaBD();
-            app_mesa _app_mesa = new app_mesa();
 
             try
             {
                 using (TransactionScope _transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
                 {
-                    respuestaBD = await _app_mesa.limpiar_mesa(idMesa);
+                    respuestaBD = await this._app_mesa.limpiar_mesa(idMesa);
                     if (respuestaBD.status == "error")
                     {
                         respuestaCore = new AppRespuestaCore
@@ -185,13 +189,12 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
         public async Task<ActionResult<AppRespuestaCore>> traer_mesa_de_usuario(long id_mesa)
         {
             AppTraerMesaConteoUsuario _datos = new AppTraerMesaConteoUsuario();
-            app_mesa _app_mesa = new app_mesa();
             AppRespuestaCore respuestaCore = new  AppRespuestaCore();
             string idUsuario = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             try
             {
-                _datos = await _app_mesa.traer_mesa_de_usuario(long.Parse(idUsuario), id_mesa);
+                _datos = await this._app_mesa.traer_mesa_de_usuario(long.Parse(idUsuario), id_mesa);
 
                 respuestaCore = new AppRespuestaCore
                 {

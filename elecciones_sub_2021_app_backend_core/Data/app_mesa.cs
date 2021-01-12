@@ -3,10 +3,11 @@ using Dapper;
 using System;
 using System.Data;
 using System.Threading.Tasks;
+using elecciones_sub_2021_app_backend_core.Interfaces;
 
 namespace elecciones_sub_2021_app_backend_core.Data
 {
-    public class app_mesa
+    public class app_mesa: Iapp_mesa
     {
         c_conexion _c_conexion = new c_conexion();
         public async Task<AppMesaRecintoListado> listar_mesa_recinto(long id_usuario)
