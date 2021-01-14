@@ -9,7 +9,11 @@ namespace elecciones_sub_2021_app_backend_core.Data
 {
     public class app_adm_usuario: Iapp_adm_usuario
     {
-        c_conexion _c_conexion = new c_conexion();
+        private readonly Ic_conexion _c_conexion;
+        public app_adm_usuario(Ic_conexion c_conexion)
+        {
+            this._c_conexion = c_conexion;
+        }
         public async Task<AppRespuestaCore> login(string usuario, string contrasena)
         {
             AppRespuestaCore respuestaBD = new AppRespuestaCore();

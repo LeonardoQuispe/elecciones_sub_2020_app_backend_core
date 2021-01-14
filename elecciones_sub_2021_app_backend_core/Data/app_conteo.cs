@@ -16,18 +16,19 @@ namespace elecciones_sub_2021_app_backend_core.Data
 {
     public class app_conteo: Iapp_conteo
     {
-        c_conexion _c_conexion = new c_conexion();
         private IConfiguration appSettingsInstance;
         private readonly Iapp_mesa _app_mesa;
         private readonly Iapp_imagen_acta _app_imagen_acta;
+        private readonly Ic_conexion _c_conexion;
 
-        public app_conteo(Iapp_mesa app_mesa, Iapp_imagen_acta app_imagen_acta)
+        public app_conteo(Iapp_mesa app_mesa, Iapp_imagen_acta app_imagen_acta, Ic_conexion c_conexion)
         {            
             appSettingsInstance = new ConfigurationBuilder()
                                     // .SetBasePath(Directory.GetCurrentDirectory())
                                     .AddJsonFile("appsettings.json").Build();
             this._app_mesa = app_mesa;
             this._app_imagen_acta = app_imagen_acta;
+            this._c_conexion = c_conexion;
         }
         // public async Task<AppRespuestaBD> guardar(AppPostConteoPartido datos, IAzureBlobService azureBlobService)
         public async Task<AppRespuestaBD> guardar(AppPostConteoPartido datos, IWebHostEnvironment env)

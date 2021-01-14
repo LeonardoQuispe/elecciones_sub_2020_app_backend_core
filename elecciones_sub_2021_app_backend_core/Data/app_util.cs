@@ -10,14 +10,15 @@ namespace elecciones_sub_2021_app_backend_core.Data
 {
     public class app_util: Iapp_util
     {
-        c_conexion _c_conexion = new c_conexion();
         private IConfiguration appSettingsInstance;
+        private readonly Ic_conexion _c_conexion;
 
-        public app_util()
+        public app_util(Ic_conexion c_conexion)
         {
             appSettingsInstance = new ConfigurationBuilder()
                                     // .SetBasePath(System.IO.Directory.GetCurrentDirectory())
                                     .AddJsonFile("appsettings.json").Build();
+            this._c_conexion = c_conexion;
         }
 
         public async Task<AppParametros> traer_parametros()

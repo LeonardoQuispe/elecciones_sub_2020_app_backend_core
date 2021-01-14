@@ -10,7 +10,11 @@ namespace elecciones_sub_2021_app_backend_core.Data
 {
     public class app_imagen_acta: Iapp_imagen_acta
     {
-        c_conexion _c_conexion = new c_conexion();
+        private readonly Ic_conexion _c_conexion;
+        public app_imagen_acta(Ic_conexion c_conexion)
+        {
+            this._c_conexion = c_conexion;
+        }
         public async Task<AppRespuestaBD> guardar(IFormFile imagen, long idMesa)
         {
             try

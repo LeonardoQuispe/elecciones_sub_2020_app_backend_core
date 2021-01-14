@@ -7,10 +7,11 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Text;
 using Npgsql;
+using elecciones_sub_2021_app_backend_core.Interfaces;
 
 namespace elecciones_sub_2021_app_backend_core.Data
 {
-    public class c_conexion
+    public class c_conexion: Ic_conexion
     {
         private IConfiguration appSettingsInstance;
 

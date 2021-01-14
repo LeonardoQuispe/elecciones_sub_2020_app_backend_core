@@ -12,6 +12,7 @@ namespace elecciones_sub_2021_app_backend_core.Services
             services.AddSingleton<Iapp_mesa, app_mesa>();
             services.AddSingleton<Iapp_adm_usuario, app_adm_usuario>();
             services.AddSingleton<Iapp_util, app_util>();
+            services.AddSingleton<Ic_conexion, c_conexion>();
             return services;
         }
     }
