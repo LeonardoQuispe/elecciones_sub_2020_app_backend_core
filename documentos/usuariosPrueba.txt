@@ -2,4 +2,6 @@ JEFE RECINTO "JUVENAL"
 usuario: jeferec6882
 contrasena: 5b3648
 
-DELEGADO MESA  "JUVENAL"
+JEFE RECINTO "COL. BUENAS NUEVAS" SANTA CRUZ DE LA SIERRA 
+usuario: jeferec38811
+contrasena: 8feaec
