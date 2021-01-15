@@ -274,7 +274,7 @@ namespace elecciones_sub_2021_app_backend_core.Data
 
 
         
-        public async Task<IEnumerable<Partido>> listado_partidos()
+        public async Task<IEnumerable<Partido>> listado_partidos(long idMesa, long idTipoConteo)
         {
             try
             {
@@ -284,7 +284,11 @@ namespace elecciones_sub_2021_app_backend_core.Data
                 {
                     arrayDatos = await cnx.QueryAsync<Partido>(
                         sql: "sp_app_listado_partidos",
-                        commandType: CommandType.StoredProcedure            
+                        param: new {
+                            id_mesa = idMesa,
+                            id_tipo_conteo = idTipoConteo,
+                        },
+                        commandType: CommandType.StoredProcedure
                     );
                     cnx.Close();
                 }

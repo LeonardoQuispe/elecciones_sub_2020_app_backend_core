@@ -1,3 +1,51 @@
+
+ALTER SEQUENCE partido_id_seq RESTART WITH 1
+select * from partido p order by id; 
+
+select current_timestamp 
+SHOW TIMEZONE;
+
+---------------- SANTA CRUZ DE LA SIERRA
+select * from recinto r where id = 3881 and nombre = 'COL. BUENAS NUEVAS';
+select id, cuenta, decrypt(contrasena::bytea, salt::bytea, 'aes') as contrasena 
+from adm_usuario au where id = 4932;
+---------------- MONTERO
+select * from recinto r where id = 4523 and nombre = 'COL. JUAN ZABALA';
+select id, cuenta, decrypt(contrasena::bytea, salt::bytea, 'aes') as contrasena 
+from adm_usuario au where id = 5706;
+
+
+delete from imagen_acta;
+TRUNCATE conteo CASCADE;
+UPDATE public.mesa
+set
+bandera_usuario_asignado=null
+, bandera_apertura=null
+, fecha_hora_apertura=null
+, bandera_validado_jefe_recinto=null
+ ,observacion=null
+ , id_estado_mesa=1
+ , fecha_modificacion=null
+ , bandera_validado_centro_computo=null
+ , bandera_acta_recepcionada=null
+ , observacion_conteo=null;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 SELECT * FROM mesa where id in (27,28,29,30,31,32,33,34,35);
 SELECT * FROM mesa where id in (36,37,38,39,40,41,42,43,44,45,46,47);
 select * from det_usuario_recinto;

@@ -9,6 +9,6 @@ namespace elecciones_sub_2021_app_backend_core.Interfaces
     {
         public Task<AppRespuestaBD> guardar(AppPostConteoPartido datos, IWebHostEnvironment env);
         public Task<byte[]> traer_imagen_acta(string nombre_imagen_acta);
-        public Task<IEnumerable<Partido>> listado_partidos();
+        public Task<IEnumerable<Partido>> listado_partidos(long idMesa, long idTipoConteo);
     }
 }

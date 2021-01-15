@@ -168,22 +168,33 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
         // }
 
         
-        [Route("listado_partidos")]
+        [Route("listado_partidos/{idMesa}/{idTipoConteo}")]
         [HttpGet]
-        public async Task<ActionResult<AppRespuestaCore>> listado_partidos()
+        public async Task<ActionResult<AppRespuestaCore>> listado_partidos(long idMesa, long idTipoConteo)
         {
             IEnumerable<Partido> arrayDatos = new Partido[] { };;
             AppRespuestaCore respuestaCore = new  AppRespuestaCore();
 
             try
             {
-                arrayDatos = await this._app_conteo.listado_partidos();
+                arrayDatos = await this._app_conteo.listado_partidos(idMesa, idTipoConteo);
 
-                respuestaCore = new AppRespuestaCore
+                if (arrayDatos != null && (arrayDatos as List<Partido>).Count > 0)
                 {
-                    status = "success",
-                    response = arrayDatos
-                };
+                    respuestaCore = new AppRespuestaCore
+                    {
+                        status = "success",
+                        response = arrayDatos
+                    };
+                }
+                else
+                {
+                    respuestaCore = new AppRespuestaCore
+                    {
+                        status = "error",
+                        response = "No hay datos cargados en su Municipio"
+                    };
+                }
                 return new OkObjectResult(respuestaCore);
             }
             catch (Exception ex)

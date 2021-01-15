@@ -2,6 +2,15 @@ JEFE RECINTO "JUVENAL"
 usuario: jeferec6882
 contrasena: 5b3648
 
-JEFE RECINTO "COL. BUENAS NUEVAS" SANTA CRUZ DE LA SIERRA 
+
+
+
+JEFE RECINTO "COL. BUENAS NUEVAS" -- SANTA CRUZ DE LA SIERRA 
 usuario: jeferec38811
 contrasena: 8feaec
+
+JEFE RECINTO "COL. JUAN ZABALA" -- MONTERO
+usuario: jeferec45232
+contrasena: 5799ba
+
+ 
