@@ -285,8 +285,8 @@ namespace elecciones_sub_2021_app_backend_core.Data
                     arrayDatos = await cnx.QueryAsync<Partido>(
                         sql: "sp_app_listado_partidos",
                         param: new {
-                            id_mesa = idMesa,
-                            id_tipo_conteo = idTipoConteo,
+                            _id_mesa = idMesa,
+                            _id_tipo_conteo = idTipoConteo,
                         },
                         commandType: CommandType.StoredProcedure
                     );

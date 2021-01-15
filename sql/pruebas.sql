@@ -5,14 +5,17 @@ select * from partido p order by id;
 select current_timestamp 
 SHOW TIMEZONE;
 
----------------- SANTA CRUZ DE LA SIERRA
+---------------- SANTA CRUZ DE LA SIERRA ----------
 select * from recinto r where id = 3881 and nombre = 'COL. BUENAS NUEVAS';
-select id, cuenta, decrypt(contrasena::bytea, salt::bytea, 'aes') as contrasena 
+select id, nombre, cuenta, decrypt(contrasena::bytea, salt::bytea, 'aes') as contrasena 
 from adm_usuario au where id = 4932;
----------------- MONTERO
-select * from recinto r where id = 4523 and nombre = 'COL. JUAN ZABALA';
-select id, cuenta, decrypt(contrasena::bytea, salt::bytea, 'aes') as contrasena 
-from adm_usuario au where id = 5706;
+---------------- COTOCA -------------------
+select * from recinto r where id = 4033 and nombre = 'ESCUELA COL. SAN MARCOS';
+select id, nombre, cuenta, decrypt(contrasena::bytea, salt::bytea, 'aes') as contrasena 
+from adm_usuario au where id = 5161;
+
+
+
 
 
 delete from imagen_acta;

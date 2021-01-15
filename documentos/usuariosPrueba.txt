@@ -9,8 +9,8 @@ JEFE RECINTO "COL. BUENAS NUEVAS" -- SANTA CRUZ DE LA SIERRA
 usuario: jeferec38811
 contrasena: 8feaec
 
-JEFE RECINTO "COL. JUAN ZABALA" -- MONTERO
-usuario: jeferec45232
-contrasena: 5799ba
+JEFE RECINTO "ESCUELA COL. SAN MARCOS" -- COTOCA
+usuario: jeferec40331
+contrasena: b94a0e
 
  
