@@ -6,16 +6,21 @@ select current_timestamp
 SHOW TIMEZONE;
 
 ---------------- SANTA CRUZ DE LA SIERRA ----------
-select * from recinto r where id = 3881 and nombre = 'COL. BUENAS NUEVAS';
+select * from recinto r where id = 3697 and nombre = 'COL. LA MADRE';
 select id, nombre, cuenta, decrypt(contrasena::bytea, salt::bytea, 'aes') as contrasena 
-from adm_usuario au where id = 4932;
+from adm_usuario au where id = 4668;
 ---------------- COTOCA -------------------
 select * from recinto r where id = 4033 and nombre = 'ESCUELA COL. SAN MARCOS';
 select id, nombre, cuenta, decrypt(contrasena::bytea, salt::bytea, 'aes') as contrasena 
 from adm_usuario au where id = 5161;
 
 
-
+select * from adm_usuario au;
+select * from recinto r2 where id = 3697;
+select * from mesa m 
+inner join recinto r on r.id = m.id_recinto and r.estado = 'AC' and r.id_municipio = 70101
+where m.estado = 'AC' and id_recinto = 3697;
+select * from det_usuario_recinto dur where id_recinto = 3697;
 
 
 delete from imagen_acta;

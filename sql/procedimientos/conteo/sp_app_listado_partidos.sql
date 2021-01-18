@@ -29,7 +29,7 @@ begin
 	from det_municipio_partido dmp 
 	inner join partido p on p.id = dmp.id_partido and p.estado = 'AC'
 	where dmp.estado = 'AC' and dmp.id_municipio = aux_id_municipio
-	order by p.id asc;
+	order by dmp.id asc;
 end;
 $function$
 ;
