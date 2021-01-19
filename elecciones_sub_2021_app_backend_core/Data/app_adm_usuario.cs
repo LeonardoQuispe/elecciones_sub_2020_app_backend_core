@@ -30,7 +30,8 @@ namespace elecciones_sub_2021_app_backend_core.Data
                             status = "success",
                             response = new UsuarioLogin{
                                 id = objUsuario.id,
-                                cuenta = objUsuario.nombre,
+                                // cuenta = objUsuario.nombre,
+                                cuenta = objUsuario.cuenta,
                                 id_rol = objUsuario.id_rol,
                             },
                         };

@@ -21,6 +21,7 @@ select * from mesa m
 inner join recinto r on r.id = m.id_recinto and r.estado = 'AC' and r.id_municipio = 70101
 where m.estado = 'AC' and id_recinto = 3697;
 select * from det_usuario_recinto dur where id_recinto = 3697;
+select * from partido p order by id
 
 
 delete from imagen_acta;
