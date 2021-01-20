@@ -5,12 +5,12 @@ contrasena: 5b3648
 
 
 
-JEFE RECINTO "COL. LA MADRE" -- SANTA CRUZ DE LA SIERRA 
-usuario: jeferec36971
-contrasena: 22ad50
+JEFE RECINTO "COL. HERNANDO SILES" -- SANTA CRUZ DE LA SIERRA 
+usuario: jeferec39551
+contrasena: f91228
 
-JEFE RECINTO "ESCUELA COL. SAN MARCOS" -- COTOCA
-usuario: jeferec40331
-contrasena: b94a0e
+JEFE RECINTO "ESCUELA COLEGIO LORENZO CORTEZ RIVERA" -- COTOCA
+usuario: jeferec40302
+contrasena: ce0e15
 
  

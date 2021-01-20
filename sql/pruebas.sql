@@ -1,27 +1,31 @@
 
-ALTER SEQUENCE partido_id_seq RESTART WITH 1
-select * from partido p order by id; 
-
-select current_timestamp 
-SHOW TIMEZONE;
-
----------------- SANTA CRUZ DE LA SIERRA ----------
-select * from recinto r where id = 3697 and nombre = 'COL. LA MADRE';
-select id, nombre, cuenta, decrypt(contrasena::bytea, salt::bytea, 'aes') as contrasena 
-from adm_usuario au where id = 4668;
----------------- COTOCA -------------------
-select * from recinto r where id = 4033 and nombre = 'ESCUELA COL. SAN MARCOS';
-select id, nombre, cuenta, decrypt(contrasena::bytea, salt::bytea, 'aes') as contrasena 
-from adm_usuario au where id = 5161;
 
 
-select * from adm_usuario au;
-select * from recinto r2 where id = 3697;
-select * from mesa m 
-inner join recinto r on r.id = m.id_recinto and r.estado = 'AC' and r.id_municipio = 70101
-where m.estado = 'AC' and id_recinto = 3697;
-select * from det_usuario_recinto dur where id_recinto = 3697;
-select * from partido p order by id
+select 
+	u.id as idUsuario
+	,r.id as idRecinto
+	,r.nombre as nombre_recinto
+	,u.cuenta
+	,decrypt(u.contrasena::bytea, u.salt::bytea, 'aes') as contrasena  
+	,m.nombre as municipio
+	,r.id_circunscripcion
+	,(select count(m2.id) from mesa m2 where m2.estado='AC' and m2.id_recinto=r.id) total_mesas
+from adm_usuario u
+inner join det_usuario_recinto dur on dur.id_usuario = u.id 
+inner join recinto r on r.id = dur.id_recinto
+inner join municipio m on m.id = r.id_municipio 
+where u.estado = 'AC' and r.estado = 'AC' and m.estado = 'AC' and dur.estado ='AC'
+and upper(r.nombre) like upper('%siles%')
+-- and r.id = 3955
+order by m.nombre ASC,total_mesas desc;
+
+
+select * from rpt_mesas_llenadas_por_circunscripcion(50)
+
+
+
+
+select * from adm_rol ar;
 
 
 delete from imagen_acta;
