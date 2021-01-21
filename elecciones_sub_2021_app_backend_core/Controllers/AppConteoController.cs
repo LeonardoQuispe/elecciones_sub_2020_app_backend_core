@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using System.Collections.Generic;
 using elecciones_sub_2021_app_backend_core.Interfaces;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace elecciones_sub_2021_app_backend_core.Controllers
 {
@@ -20,12 +21,14 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
     public class AppConteoController : ControllerBase
     {
         // private readonly IAzureBlobService _azureBlobService;
+        private readonly IMemoryCache _cache;
         private IWebHostEnvironment _env; 
         private readonly Iapp_conteo _app_conteo;
 
-        public AppConteoController(IWebHostEnvironment env, Iapp_conteo app_conteo)
+        public AppConteoController(IMemoryCache cache, IWebHostEnvironment env, Iapp_conteo app_conteo)
         {
-            _env = env;
+            this._cache = cache;
+            this._env = env;
             this._app_conteo = app_conteo;
         }
         // public AppConteoController(IAzureBlobService azureBlobService)
@@ -168,23 +171,68 @@ namespace elecciones_sub_2021_app_backend_core.Controllers
         // }
 
         
-        [Route("listado_partidos/{idMesa}/{idTipoConteo}")]
+        [Route("listado_partidos_sin_cache/{idMesa}/{idTipoConteo}/{idMunicipio}")]
         [HttpGet]
-        public async Task<ActionResult<AppRespuestaCore>> listado_partidos(long idMesa, long idTipoConteo)
+        public async Task<ActionResult<AppRespuestaCore>> listado_partidos_sin_cache(long idMesa, long idTipoConteo, long idMunicipio)
         {
             IEnumerable<Partido> arrayDatos = new Partido[] { };;
             AppRespuestaCore respuestaCore = new  AppRespuestaCore();
 
             try
             {
-                arrayDatos = await this._app_conteo.listado_partidos(idMesa, idTipoConteo);
+                var _arrayDatosCache = await this._app_conteo.listado_partidos(idMesa, idTipoConteo, idMunicipio);
 
-                if (arrayDatos != null && (arrayDatos as List<Partido>).Count > 0)
+                if (_arrayDatosCache != null && (_arrayDatosCache as List<Partido>).Count > 0)
                 {
                     respuestaCore = new AppRespuestaCore
                     {
                         status = "success",
-                        response = arrayDatos
+                        response = _arrayDatosCache
+                    };
+                }
+                else
+                {
+                    respuestaCore = new AppRespuestaCore
+                    {
+                        status = "error",
+                        response = "No hay datos cargados en su Municipio"
+                    };
+                }
+                return new OkObjectResult(respuestaCore);
+            }
+            catch (Exception ex)
+            {
+                respuestaCore = new AppRespuestaCore
+                {
+                    status = "error",
+                    response = ex.Message
+                };
+
+                return new OkObjectResult(respuestaCore);
+            }
+        }
+        [Route("listado_partidos/{idMesa}/{idTipoConteo}/{idMunicipio}")]
+        [HttpGet]
+        public async Task<ActionResult<AppRespuestaCore>> listado_partidos(long idMesa, long idTipoConteo, long idMunicipio)
+        {
+            IEnumerable<Partido> arrayDatos = new Partido[] { };
+            AppRespuestaCore respuestaCore = new  AppRespuestaCore();
+
+            try
+            {
+                var _arrayDatosCache = await _cache.GetOrCreateAsync($"listado_partidos_municipio{idMunicipio}", async entry =>
+                {
+                    entry.SetSlidingExpiration(TimeSpan.FromHours((int)TiempoExpiracion.HorasExpiracionCache)); 
+                    return arrayDatos = await this._app_conteo.listado_partidos(idMesa, idTipoConteo, idMunicipio);
+                });
+
+
+                if (_arrayDatosCache != null && (_arrayDatosCache as List<Partido>).Count > 0)
+                {
+                    respuestaCore = new AppRespuestaCore
+                    {
+                        status = "success",
+                        response = _arrayDatosCache
                     };
                 }
                 else

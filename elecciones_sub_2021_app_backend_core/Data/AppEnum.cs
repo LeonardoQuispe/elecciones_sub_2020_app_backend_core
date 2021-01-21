@@ -41,4 +41,8 @@ namespace elecciones_sub_2021_app_backend_core.Data
         Llenada = 2,
         Anulada = 3,
     } 
+    public enum TiempoExpiracion
+    {
+        HorasExpiracionCache = 12,
+    } 
 }

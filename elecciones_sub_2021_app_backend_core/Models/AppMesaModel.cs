@@ -59,5 +59,6 @@ namespace elecciones_sub_2021_app_backend_core.Models
         public long? id_imagen_acta { get; set; }
         public string imagen_acta_content_type { get; set; }
         public int habilitados { get; set; }
+        public long id_municipio { get; set; }
     }
 }

@@ -274,7 +274,7 @@ namespace elecciones_sub_2021_app_backend_core.Data
 
 
         
-        public async Task<IEnumerable<Partido>> listado_partidos(long idMesa, long idTipoConteo)
+        public async Task<IEnumerable<Partido>> listado_partidos(long idMesa, long idTipoConteo, long idMunicipio)
         {
             try
             {
@@ -287,6 +287,7 @@ namespace elecciones_sub_2021_app_backend_core.Data
                         param: new {
                             _id_mesa = idMesa,
                             _id_tipo_conteo = idTipoConteo,
+                            _id_municipio = idMunicipio,
                         },
                         commandType: CommandType.StoredProcedure
                     );

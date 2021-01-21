@@ -18,7 +18,8 @@ CREATE OR REPLACE FUNCTION sp_app_traer_mesa_de_usuario(
  	id_imagen_acta bigint,
  	nombre_imagen_acta character varying,
  	imagen_acta_content_type character varying,
- 	habilitados int
+ 	habilitados int,
+ 	id_municipio bigint
  )
  LANGUAGE plpgsql
 AS $function$
@@ -44,8 +45,9 @@ begin
 					, i.nombre as nombre_imagen_acta	
 					, i.content_type as imagen_acta_content_type
 					, coalesce(m.habilitados,0)
+					, r.id_municipio
 				from mesa m
-				inner join recinto r on r.id = m.id_recinto
+				inner join recinto r on r.id = m.id_recinto and r.estado = ''AC''
 				left join imagen_acta i on m.id = i.id_mesa and i.estado = ''AC''
 				where m.estado = ''AC''';			
 		if(_id_mesa <> 0) then
@@ -61,6 +63,7 @@ end;
 $function$
 ;
 /*
+select * from recinto;
 select * from sp_app_traer_mesa_de_usuario(5936, 31627)
 select * from sp_app_traer_mesa_de_usuario(37982, 0)
 

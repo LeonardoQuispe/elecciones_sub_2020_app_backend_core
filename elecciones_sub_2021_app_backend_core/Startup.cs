@@ -25,6 +25,10 @@ namespace elecciones_sub_2021_app_backend_core
             services.AddControllers();
             // Agregando dependencias service
             IoC.AddDependency(services);
+            // cache in memory
+            services.AddMemoryCache();
+            // caching response for middlewares
+            services.AddResponseCaching();
             //// agregando azure 
             //services.AddSingleton<IAzureBlobConnectionFactory, AzureBlobConnectionFactory>();
             //services.AddSingleton<IAzureBlobService, AzureBlobService>();
@@ -69,6 +73,8 @@ namespace elecciones_sub_2021_app_backend_core
 
             // token seguridad
             app.UseAuthentication();
+            // caching response for middlewares
+            app.UseResponseCaching();
 
             app.UseAuthorization();
 
