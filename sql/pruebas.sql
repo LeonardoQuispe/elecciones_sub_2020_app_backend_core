@@ -20,12 +20,10 @@ and upper(r.nombre) like upper('%siles%')
 order by m.nombre ASC,total_mesas desc;
 
 
-select * from rpt_mesas_llenadas_por_circunscripcion(50)
+
+select count(*) from recinto r where r.estado = 'AC'
 
 
-
-
-select * from adm_rol ar;
 
 
 delete from imagen_acta;
