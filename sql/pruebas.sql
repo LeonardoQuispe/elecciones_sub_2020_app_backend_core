@@ -24,6 +24,25 @@ order by m.nombre ASC,total_mesas desc;
 select count(*) from recinto r where r.estado = 'AC'
 
 
+	INSERT INTO public.det_municipio_partido(id_municipio, id_partido, fecha_registro, estado)values
+	(70105, 1, current_timestamp, 'AC');
+	INSERT INTO public.det_municipio_partido(id_municipio, id_partido, fecha_registro, estado)values
+	(70105, 6, current_timestamp, 'AC');
+	INSERT INTO public.det_municipio_partido(id_municipio, id_partido, fecha_registro, estado)values
+	(70105, 2, current_timestamp, 'AC');
+	INSERT INTO public.det_municipio_partido(id_municipio, id_partido, fecha_registro, estado)values
+	(70105, 3, current_timestamp, 'AC');
+	INSERT INTO public.det_municipio_partido(id_municipio, id_partido, fecha_registro, estado)values
+	(70105, 8, current_timestamp, 'AC');
+
+INSERT INTO public.det_municipio_partido(id_municipio, id_partido, fecha_registro, estado)values
+(70105, 0, current_timestamp, 'AC');
+
+
+select * from partido p2 order by nombre;
+select * from municipio m where upper(nombre) like upper('%El Torno%');
+
+
 
 
 delete from imagen_acta;
