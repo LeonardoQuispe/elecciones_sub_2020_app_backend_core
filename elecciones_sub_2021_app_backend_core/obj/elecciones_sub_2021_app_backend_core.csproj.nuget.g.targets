@@ -4,6 +4,6 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)mime\3.2.2\build\Mime.targets" Condition="Exists('$(NuGetPackageRoot)mime\3.2.2\build\Mime.targets')" />
+    <Import Project="$(NuGetPackageRoot)mime/3.2.2/build/Mime.targets" Condition="Exists('$(NuGetPackageRoot)mime/3.2.2/build/Mime.targets')" />
   </ImportGroup>
 </Project>

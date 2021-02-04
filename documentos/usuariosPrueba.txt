@@ -7,10 +7,8 @@ contrasena: 5b3648
 
 JEFE RECINTO "COL. HERNANDO SILES" -- SANTA CRUZ DE LA SIERRA 
 usuario: jeferec39551
-contrasena: f91228
+contrasena: 80f59a
 
 JEFE RECINTO "ESCUELA COLEGIO LORENZO CORTEZ RIVERA" -- COTOCA
 usuario: jeferec40302
-contrasena: ce0e15
-
- 
+contrasena: e99477

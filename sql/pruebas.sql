@@ -1,15 +1,15 @@
 
 
-
+--SABER CONTRASENA DE USUARIO JEFES RECINTO
 select 
 	u.id as idUsuario
-	,r.id as idRecinto
-	,r.nombre as nombre_recinto
+--	,r.id as idRecinto
+--	,r.nombre as nombre_recinto
 	,u.cuenta
 	,decrypt(u.contrasena::bytea, u.salt::bytea, 'aes') as contrasena  
-	,m.nombre as municipio
-	,r.id_circunscripcion
-	,(select count(m2.id) from mesa m2 where m2.estado='AC' and m2.id_recinto=r.id) total_mesas
+--	,m.nombre as municipio
+--	,r.id_circunscripcion
+--	,(select count(m2.id) from mesa m2 where m2.estado='AC' and m2.id_recinto=r.id) total_mesas
 from adm_usuario u
 inner join det_usuario_recinto dur on dur.id_usuario = u.id 
 inner join recinto r on r.id = dur.id_recinto
@@ -21,26 +21,29 @@ order by m.nombre ASC,total_mesas desc;
 
 
 
-select count(*) from recinto r where r.estado = 'AC'
-
-
-	INSERT INTO public.det_municipio_partido(id_municipio, id_partido, fecha_registro, estado)values
-	(70105, 1, current_timestamp, 'AC');
-	INSERT INTO public.det_municipio_partido(id_municipio, id_partido, fecha_registro, estado)values
-	(70105, 6, current_timestamp, 'AC');
-	INSERT INTO public.det_municipio_partido(id_municipio, id_partido, fecha_registro, estado)values
-	(70105, 2, current_timestamp, 'AC');
-	INSERT INTO public.det_municipio_partido(id_municipio, id_partido, fecha_registro, estado)values
-	(70105, 3, current_timestamp, 'AC');
-	INSERT INTO public.det_municipio_partido(id_municipio, id_partido, fecha_registro, estado)values
-	(70105, 8, current_timestamp, 'AC');
-
-INSERT INTO public.det_municipio_partido(id_municipio, id_partido, fecha_registro, estado)values
-(70105, 0, current_timestamp, 'AC');
-
-
+select * from det_municipio_partido dmp where id_municipio = 70302;
 select * from partido p2 order by nombre;
-select * from municipio m where upper(nombre) like upper('%El Torno%');
+select * from municipio m where upper(nombre) like upper('%porongo%');
+
+
+
+select * from sp_buscar_usuario(0, 'jeferec40302','66e40f');
+
+select 
+	u.*
+	,u.cuenta
+	,decrypt(u.contrasena::bytea, u.salt::bytea, 'aes') as contrasena  
+from adm_usuario u where cuenta = 'jeferec40302'
+
+
+
+
+select distinct id_municipio from det_municipio_partido dmp;
+select m.nombre ,p.sigla , p.nombre 
+from det_municipio_partido mp
+inner join municipio m on m.id = mp.id_municipio
+inner join partido p on p.id = mp.id_partido 
+order by m.nombre , mp.id;
 
 
 
