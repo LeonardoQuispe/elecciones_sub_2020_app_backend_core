@@ -1,10 +1,24 @@
 
 
+
+
+select * from municipio m where estado ='AC';
+
+select * from rpt_mesas_llenadas_por_recinto(50);
+
+
+select * from adm_menu am where ubicacion like '%mesas_aperturadas_por_recinto%'
+
+
+
+
+
+
 --SABER CONTRASENA DE USUARIO JEFES RECINTO
 select 
 	u.id as idUsuario
---	,r.id as idRecinto
---	,r.nombre as nombre_recinto
+	,r.id as idRecinto
+	,r.nombre as nombre_recinto
 	,u.cuenta
 	,decrypt(u.contrasena::bytea, u.salt::bytea, 'aes') as contrasena  
 --	,m.nombre as municipio
@@ -21,19 +35,33 @@ order by m.nombre ASC,total_mesas desc;
 
 
 
+
+
 select * from det_municipio_partido dmp where id_municipio = 70302;
 select * from partido p2 order by nombre;
 select * from municipio m where upper(nombre) like upper('%porongo%');
 
 
 
-select * from sp_buscar_usuario(0, 'jeferec40302','66e40f');
 
+
+select * from sp_buscar_usuario(0, 'jeferec40302','66e40f');
 select 
 	u.*
 	,u.cuenta
 	,decrypt(u.contrasena::bytea, u.salt::bytea, 'aes') as contrasena  
-from adm_usuario u where cuenta = 'jeferec40302'
+from adm_usuario u where cuenta = 'jeferec39551';
+
+
+
+select * from recinto r where nombre like '%LORENZO%'
+
+select * from partido p 
+
+
+
+select * from det_conteo_partido dcp 
+
 
 
 
