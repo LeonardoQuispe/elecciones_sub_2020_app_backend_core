@@ -7,7 +7,19 @@ select * from municipio m where estado ='AC';
 select * from rpt_mesas_llenadas_por_recinto(50);
 
 
-select * from adm_menu am where ubicacion like '%mesas_aperturadas_por_recinto%'
+select * from adm_menu am 
+
+
+
+
+select distinct r.* from mesa m
+inner join recinto r on r.id=m.id_recinto 
+where id_estado_mesa =2
+--and r.id_localidad_seccion=2940
+
+select * from recinto r2  where nombre='COL. HERNANDO SILES'
+
+
 
 
 
