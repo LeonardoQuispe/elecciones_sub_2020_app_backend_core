@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PROYECTOS\\GOB\\ELECCIONES\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core.csproj": {}
+    "E:\\Sistemas\\proyecto-x\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core.csproj": {}
   },
   "projects": {
-    "D:\\PROYECTOS\\GOB\\ELECCIONES\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core.csproj": {
+    "E:\\Sistemas\\proyecto-x\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PROYECTOS\\GOB\\ELECCIONES\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core.csproj",
+        "projectUniqueName": "E:\\Sistemas\\proyecto-x\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core.csproj",
         "projectName": "elecciones_sub_2021_app_backend_core",
-        "projectPath": "D:\\PROYECTOS\\GOB\\ELECCIONES\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core.csproj",
-        "packagesPath": "C:\\Users\\lquispe\\.nuget\\packages\\",
-        "outputPath": "D:\\PROYECTOS\\GOB\\ELECCIONES\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core\\obj\\",
+        "projectPath": "E:\\Sistemas\\proyecto-x\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core.csproj",
+        "packagesPath": "C:\\Users\\rwayar\\.nuget\\packages\\",
+        "outputPath": "E:\\Sistemas\\proyecto-x\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\lquispe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rwayar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
