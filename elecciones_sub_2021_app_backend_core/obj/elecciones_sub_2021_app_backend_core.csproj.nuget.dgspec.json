@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "E:\\Sistemas\\proyecto-x\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core.csproj": {}
   },
   "projects": {
@@ -12,19 +13,35 @@
         "projectPath": "E:\\Sistemas\\proyecto-x\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core.csproj",
         "packagesPath": "C:\\Users\\rwayar\\.nuget\\packages\\",
         "outputPath": "E:\\Sistemas\\proyecto-x\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core\\obj\\",
+=======
+    "/Users/lquispe/Documents/Proyectos/ELECCIONES/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core.csproj": {}
+  },
+  "projects": {
+    "/Users/lquispe/Documents/Proyectos/ELECCIONES/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/lquispe/Documents/Proyectos/ELECCIONES/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core.csproj",
+        "projectName": "elecciones_sub_2021_app_backend_core",
+        "projectPath": "/Users/lquispe/Documents/Proyectos/ELECCIONES/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core.csproj",
+        "packagesPath": "/Users/lquispe/.nuget/packages/",
+        "outputPath": "/Users/lquispe/Documents/Proyectos/ELECCIONES/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core/obj/",
+>>>>>>> 437d4a059fd28c4e00f0364caa00039542d45c23
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\rwayar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+          "/Users/lquispe/.nuget/NuGet/NuGet.Config"
+>>>>>>> 437d4a059fd28c4e00f0364caa00039542d45c23
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -58,6 +75,10 @@
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[3.1.10, )"
+            },
+            "Microsoft.AspNetCore.Hosting.WindowsServices": {
+              "target": "Package",
+              "version": "[3.1.11, )"
             },
             "Mime": {
               "target": "Package",
@@ -94,7 +115,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
         }
       }
     }
