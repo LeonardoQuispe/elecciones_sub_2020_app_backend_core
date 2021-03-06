@@ -19,15 +19,17 @@ namespace elecciones_sub_2021_app_backend_core.Data
         private IConfiguration appSettingsInstance;
         private readonly Iapp_mesa _app_mesa;
         private readonly Iapp_imagen_acta _app_imagen_acta;
+        private readonly Iapp_util _app_util;
         private readonly Ic_conexion _c_conexion;
 
-        public app_conteo(Iapp_mesa app_mesa, Iapp_imagen_acta app_imagen_acta, Ic_conexion c_conexion)
+        public app_conteo(Iapp_mesa app_mesa, Iapp_imagen_acta app_imagen_acta, Iapp_util app_util, Ic_conexion c_conexion)
         {            
             appSettingsInstance = new ConfigurationBuilder()
                                     // .SetBasePath(Directory.GetCurrentDirectory())
                                     .AddJsonFile("appsettings.json").Build();
             this._app_mesa = app_mesa;
             this._app_imagen_acta = app_imagen_acta;
+            this._app_util = app_util;
             this._c_conexion = c_conexion;
         }
         // public async Task<AppRespuestaBD> guardar(AppPostConteoPartido datos, IAzureBlobService azureBlobService)
@@ -163,6 +165,7 @@ namespace elecciones_sub_2021_app_backend_core.Data
                     }
                     cnx.Close();
                 }
+                this._app_util.actualizarSocket();
 
                 return respuesta;
             }

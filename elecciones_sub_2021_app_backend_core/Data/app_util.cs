@@ -5,6 +5,7 @@ using System.Data;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using elecciones_sub_2021_app_backend_core.Interfaces;
+using System.Net.Http;
 
 namespace elecciones_sub_2021_app_backend_core.Data
 {
@@ -97,6 +98,28 @@ namespace elecciones_sub_2021_app_backend_core.Data
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+
+        public async Task<string> actualizarSocket()
+        {
+            try
+            {
+                string bytesResponseData;
+
+                using (HttpClient client = new HttpClient())
+                {
+                    string socketIoGet = appSettingsInstance.GetConnectionString("SocketIoGet");
+                    HttpResponseMessage response = client.GetAsync(socketIoGet).Result;
+                    bytesResponseData = await response.Content.ReadAsStringAsync();
+                }
+                return bytesResponseData;
+            }
+            catch (Exception)
+            {
+                return null;
+                // throw ex;
             }
         }
 

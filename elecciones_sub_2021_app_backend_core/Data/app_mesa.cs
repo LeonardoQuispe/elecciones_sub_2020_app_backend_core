@@ -9,10 +9,12 @@ namespace elecciones_sub_2021_app_backend_core.Data
 {
     public class app_mesa: Iapp_mesa
     {
+        private readonly Iapp_util _app_util;
         private readonly Ic_conexion _c_conexion;
-        public app_mesa(Ic_conexion c_conexion)
+        public app_mesa(Ic_conexion c_conexion, Iapp_util app_util)
         {
             this._c_conexion = c_conexion;
+            this._app_util = app_util;
         }
         public async Task<AppMesaRecintoListado> listar_mesa_recinto(long id_usuario)
         {
@@ -159,6 +161,7 @@ namespace elecciones_sub_2021_app_backend_core.Data
                     );
                     cnx.Close();
                 }
+                this._app_util.actualizarSocket();
 
                 return respuesta;
             }
