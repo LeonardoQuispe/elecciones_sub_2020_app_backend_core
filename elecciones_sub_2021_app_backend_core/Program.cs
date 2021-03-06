@@ -17,37 +17,14 @@ namespace elecciones_sub_2021_app_backend_core
     {
         public static void Main(string[] args)
         {
-            var isService = !(Debugger.IsAttached || args.Contains("--console"));
-            var pathToContentRoot = Directory.GetCurrentDirectory();
-            var webHostArgs = args.Where(arg => arg != "--console").ToArray();
-
-            if (isService)
-            {
-                var pathToExe = Process.GetCurrentProcess().MainModule.FileName;
-                pathToContentRoot = Path.GetDirectoryName(pathToExe);
-            }
-
-            var host = WebHost.CreateDefaultBuilder(webHostArgs)
-                .UseContentRoot(pathToContentRoot)
-                .UseUrls("http://0.0.0.0:5010")
-                .UseStartup<Startup>()
-                .Build();
-
-            if (isService)
-            {
-                host.RunAsService();
-            }
-            else
-            {
-                host.Run();
-            }
+            CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    // webBuilder.UseUrls("http://0.0.0.0:5010");
+                    // webBuilder.UseUrls("http://0.0.0.0:5010");  // DESARROLLO
                     webBuilder.UseStartup<Startup>();
                 });
     }

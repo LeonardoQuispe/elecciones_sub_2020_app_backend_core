@@ -6,6 +6,7 @@ namespace elecciones_sub_2021_app_backend_core.Models
     public class AppMesaRecintoListado
     {
         public string nombre_recinto { get; set; }
+        public string telefono_centro_computo { get; set; }
         public IEnumerable<AppMesaListado> mesaListado { get; set; }
     }
 

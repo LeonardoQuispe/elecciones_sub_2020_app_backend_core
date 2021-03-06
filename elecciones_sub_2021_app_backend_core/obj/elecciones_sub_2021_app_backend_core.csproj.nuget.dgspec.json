@@ -1,42 +1,23 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "E:\\Sistemas\\proyecto-x\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core.csproj": {}
+    "/Users/leonardoquispemorales/Documents/GOB/ELECCIONES/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core.csproj": {}
   },
   "projects": {
-    "E:\\Sistemas\\proyecto-x\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core.csproj": {
+    "/Users/leonardoquispemorales/Documents/GOB/ELECCIONES/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Sistemas\\proyecto-x\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core.csproj",
+        "projectUniqueName": "/Users/leonardoquispemorales/Documents/GOB/ELECCIONES/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core.csproj",
         "projectName": "elecciones_sub_2021_app_backend_core",
-        "projectPath": "E:\\Sistemas\\proyecto-x\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core.csproj",
-        "packagesPath": "C:\\Users\\rwayar\\.nuget\\packages\\",
-        "outputPath": "E:\\Sistemas\\proyecto-x\\elecciones_sub_2021_app_backend_core\\elecciones_sub_2021_app_backend_core\\obj\\",
-=======
-    "/Users/lquispe/Documents/Proyectos/ELECCIONES/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core.csproj": {}
-  },
-  "projects": {
-    "/Users/lquispe/Documents/Proyectos/ELECCIONES/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/Users/lquispe/Documents/Proyectos/ELECCIONES/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core.csproj",
-        "projectName": "elecciones_sub_2021_app_backend_core",
-        "projectPath": "/Users/lquispe/Documents/Proyectos/ELECCIONES/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core.csproj",
-        "packagesPath": "/Users/lquispe/.nuget/packages/",
-        "outputPath": "/Users/lquispe/Documents/Proyectos/ELECCIONES/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core/obj/",
->>>>>>> 437d4a059fd28c4e00f0364caa00039542d45c23
+        "projectPath": "/Users/leonardoquispemorales/Documents/GOB/ELECCIONES/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core.csproj",
+        "packagesPath": "/Users/leonardoquispemorales/.nuget/packages/",
+        "outputPath": "/Users/leonardoquispemorales/Documents/GOB/ELECCIONES/elecciones_sub_2021_app_backend_core/elecciones_sub_2021_app_backend_core/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\rwayar\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-=======
-          "/Users/lquispe/.nuget/NuGet/NuGet.Config"
->>>>>>> 437d4a059fd28c4e00f0364caa00039542d45c23
+          "/Users/leonardoquispemorales/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -46,7 +27,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -58,7 +38,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "ClosedXML": {
               "target": "Package",
@@ -115,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.406/RuntimeIdentifierGraph.json"
         }
       }
     }

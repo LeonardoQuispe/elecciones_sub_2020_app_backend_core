@@ -33,7 +33,8 @@ begin
             --Valida Datos
             perform id from conteo where id_mesa = _id_mesa and id_tipo_conteo = _id_tipo_conteo and estado = 'AC';
             if found then
-            	return QUERY select 'error', 'El acta de la Votaci�n '||aux_tipo_conteo||' ya ha sido llenada', '0';
+            	return QUERY select 'error', 'El acta de votación ya ha sido llenada', '0';
+--            	return QUERY select 'error', 'El acta de la Votación '||aux_tipo_conteo||' ya ha sido llenada', '0';
             	return;
            	end if;
             --INSERTA DATOS

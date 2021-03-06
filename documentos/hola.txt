@@ -1,0 +1,23 @@
+- MESAS APERTURADAS
+	. numero y nombre del jefe distrito y 1 responsable de control electoral en encabezado.
+	. numero y nombre de mesa del jefe de recinto en el cuerpo
+	. total de mesas aperturadas y no aperturadas.
+
+- ACTAS FALTANTES
+	. sacar nombre jefe recinto
+	. numero y nombre del jefe distrito y 1 responsable de control electoral en encabezado.
+	.
+
+- MESAS SUSPENDIDAS
+	. sacar las mesas que no estan suspendidas
+	. cambiar el nombre por mesas OBSERVADAS
+
+
+- pantalla RECEPCION ACTAS
+	. dejar registrar observacion del acta 
+
+- NUEVO REPORTE ACTAS FALTANTES CONSOLIDADO POR LOS 15 DISTRITOS
+
+- NUEVO REPORTE ACTAS OBSERVADAS
+	. que refleje los datos tambien de la pantalla de recepcion de acta
+

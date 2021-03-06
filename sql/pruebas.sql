@@ -1,31 +1,4 @@
 
-
-
-
-select * from municipio m where estado ='AC';
-
-select * from rpt_mesas_llenadas_por_recinto(50);
-
-
-select * from adm_menu am 
-
-
-
-
-select distinct r.* from mesa m
-inner join recinto r on r.id=m.id_recinto 
-where id_estado_mesa =2
---and r.id_localidad_seccion=2940
-
-select * from recinto r2  where nombre='COL. HERNANDO SILES'
-
-
-
-
-
-
-
-
 --SABER CONTRASENA DE USUARIO JEFES RECINTO
 select 
 	u.id as idUsuario
@@ -49,30 +22,51 @@ order by m.nombre ASC,total_mesas desc;
 
 
 
-select * from det_municipio_partido dmp where id_municipio = 70302;
-select * from partido p2 order by nombre;
-select * from municipio m where upper(nombre) like upper('%porongo%');
+
+
+select * from det_usuario_distrito dud order by id_usuario ;
+
+update adm_usuario set id_rol = 14 where id = 44112
+update adm_usuario set id_rol = 17 where id = 44114
+
+
+select * from adm_rol ar 
+select * from adm_usuario au limit 3
 
 
 
 
 
-select * from sp_buscar_usuario(0, 'jeferec40302','66e40f');
+ALTER TABLE public.det_usuario_distrito ADD CONSTRAINT det_usuario_distrito_fk FOREIGN KEY (id_usuario) REFERENCES public.adm_usuario(id);
+ALTER TABLE public.det_usuario_distrito ADD CONSTRAINT det_usuario_distrito_fk_1 FOREIGN KEY (id_distrito) REFERENCES public.distrito(id);
+
+
+select * from adm_usuario au where nombre like '%jefemun70101%'
+select * from adm_funcion af 
+select * from adm_usuario_funcion auf 
+INSERT INTO public.adm_usuario_funcion(id_usuario, id_funcion, estado)VALUES(262, 38, 'AC');
+
+rpt_consolidado_mesas_actas
+
+
+
+
+
 select 
-	u.*
+--	u.*
+	r.nombre 
+	,r.total_mesa 
 	,u.cuenta
 	,decrypt(u.contrasena::bytea, u.salt::bytea, 'aes') as contrasena  
-from adm_usuario u where cuenta = 'jeferec39551';
+from adm_usuario u 
+inner join det_usuario_recinto dur on dur.id_usuario = u.id 
+inner join recinto r on r.id = dur.id_recinto 
+where 1=1
+and r.id_distrito = 5
+order by total_mesa DESC,r.nombre ASC
+--and cuenta = 'jeferec39551';
+--and u.id = 41318
 
-
-
-select * from recinto r where nombre like '%LORENZO%'
-
-select * from partido p 
-
-
-
-select * from det_conteo_partido dcp 
 
 
 
@@ -96,120 +90,29 @@ bandera_usuario_asignado=null
 , bandera_apertura=null
 , fecha_hora_apertura=null
 , bandera_validado_jefe_recinto=null
- ,observacion=null
  , id_estado_mesa=1
  , fecha_modificacion=null
  , bandera_validado_centro_computo=null
  , bandera_acta_recepcionada=null
+ , observacion=null
  , observacion_conteo=null;
 
 
+select * from estado_mesa em 
+
+
+select * from mesa m2 limit 3;
+
+
+--ALTER TABLE public.mesa ADD observacion_recepcion varchar NULL;
 
 
 
+select to_char(3148, '999G999')
 
 
 
-
-
-
-
-
-
-
-
-
-SELECT * FROM mesa where id in (27,28,29,30,31,32,33,34,35);
-SELECT * FROM mesa where id in (36,37,38,39,40,41,42,43,44,45,46,47);
-select * from det_usuario_recinto;
-select * from recinto where id = 28;
-
-
-select * from conteo where id_mesa in (27,28,29,30,31,32,33,34,35);
-select dc.* from det_conteo_partido dc
-inner join conteo c on c.id = dc.id_conteo
-where c.id_mesa in (27,28,29,30,31,32,33,34,35);
-
-
-select * from conteo where id_mesa in (36,37,38,39,40,41,42,43,44,45,46,47);
-select dc.* from det_conteo_partido dc
-inner join conteo c on c.id = dc.id_conteo
-where c.id_mesa in (36,37,38,39,40,41,42,43,44,45,46,47);
-
-
-select * from det_conteo_partido;
-select * from adm_rol;
-select * from adm_usuario where cuenta = 'delegado31642';
-select * from mesa m2 where id =31628
-select * from estado_mesa;
-select * from tipo_conteo;
-select * from partido;
-select * from parametros;
-select * from det_usuario_recinto;
-
-
-delete from imagen_acta 
-where id in (select id_imagen_acta from conteo where id_mesa in (27,28,29,30,31,32,33,34,35));
-select * from imagen_acta
-where id in (select id_imagen_acta from conteo where id_mesa in (27,28,29,30,31,32,33,34,35));
-
-
-select * from provincia p2 where id=713;
-select * from municipio m2 where id=71301;
-select * from mesa where id=31630;
-select * from conteo where id_mesa = 31630;
-select * from parametros;
-select * from departamento d2 
-select * from circunscripcion
-select * from municipio
-select * from pais
-select * from imagen_acta where id_mesa = 31630;
-select * from adm_rol ar;
-select u.* from adm_usuario u where id_rol=2;
-select u.* from adm_usuario u where id_rol=8;
-select u.* from adm_usuario u where id_rol=9;
-select * from comentario;
-delete from comentario;
-
-select * from adm_usuario where id=2;
-
---select id, cuenta, decrypt(contrasena::bytea, salt::bytea, 'aes') as contrasena  
---from adm_usuario au where cuenta = 'jeferecex52651' ;
-select id, cuenta, decrypt(contrasena::bytea, salt::bytea, 'aes') as contrasena  
-from adm_usuario au where cuenta = 'jeferec6882' ;
-
-update adm_usuario set
-	nombre = null,
-	apellido_paterno =null,
-	apellido_materno =null
-where id=2;
-
-select * from conteo c2 where id_mesa = 1268
-select * from sp_app_traer_conteo_mesa(1268)
-
-
-
-SELECT pg_database.datname, pg_size_pretty(pg_database_size(pg_database.datname)) AS SIZE FROM pg_database where datname='db_bolivia_dice_no_2';
-
-
-
-
-select * from recinto r2 where nombre like '%JUVENAL%';
-select * from mesa m where id_recinto=688 order by numero_mesa ASC;
-
-select * from sp_app_limpiar_mesa(5624);
-update mesa set bandera_usuario_asignado=null,bandera_apertura=null where id=5624;
-
-
-
-
-5b3648
-
-select * from parametros p2 ;
-select * from partido order by id;
-
-
-
+select sum(r.total_mesa) from recinto r  where id_distrito is not null 
 
 
 

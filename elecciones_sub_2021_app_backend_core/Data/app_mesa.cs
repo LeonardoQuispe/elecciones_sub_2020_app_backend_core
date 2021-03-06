@@ -32,13 +32,15 @@ namespace elecciones_sub_2021_app_backend_core.Data
                         }                  
                     );
                     nombreFuncion = "sp_app_traer_recinto";
-                    datos.nombre_recinto = cnx.QueryFirstOrDefault<string>(
+                    dynamic objeto  = cnx.QueryFirstOrDefault<dynamic>(
                         sql: nombreFuncion,
                         commandType: CommandType.StoredProcedure,
                         param: new {
                             _id_usuario = id_usuario,
                         }                  
                     );
+                    datos.nombre_recinto = objeto.nombre_recinto;
+                    datos.telefono_centro_computo = objeto.telefono_centro_computo;
                     cnx.Close();
                 }
 
