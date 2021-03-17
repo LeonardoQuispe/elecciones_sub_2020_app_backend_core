@@ -5,17 +5,17 @@ namespace elecciones_sub_2021_app_backend_core.Data
     /// </summary>
     public enum ArrayPartidos
     {
-        COMUNIDAD_CIUDADANA = 1,
-        FRENTE_PARA_LA_VICTORIA = 2,
-        MOVIMIENTO_TERCER_SISTEMA = 3,
-        UNIDAD_CIVICA_SOLIDARIDAD = 4,
-        MOVIMIENTO_AL_SOCIALISMO = 5,
-        BOLIVIA_DICE_NO = 6,
-        PARTIDO_DEMOCRATA_CRISTIANO = 7,
-        MOVIMIENTO_NACIONALISTA_REVOLUCIONARIO = 8,
-        PARTIDO_DE_ACCIÓN_NACIONAL_BOLIVIANO = 9,
-        NULOS = 10,
-        BLANCOS = 11,
+        // COMUNIDAD_CIUDADANA = 1,
+        // FRENTE_PARA_LA_VICTORIA = 2,
+        // MOVIMIENTO_TERCER_SISTEMA = 3,
+        // UNIDAD_CIVICA_SOLIDARIDAD = 4,
+        // MOVIMIENTO_AL_SOCIALISMO = 5,
+        // BOLIVIA_DICE_NO = 6,
+        // PARTIDO_DEMOCRATA_CRISTIANO = 7,
+        // MOVIMIENTO_NACIONALISTA_REVOLUCIONARIO = 8,
+        // PARTIDO_DE_ACCIÓN_NACIONAL_BOLIVIANO = 9,
+        NULOS = 26,
+        BLANCOS = 25,
     } 
     /// <summary>
     /// Contiene los ID de las PLATAFORMAS

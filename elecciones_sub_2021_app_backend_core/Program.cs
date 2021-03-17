@@ -24,7 +24,7 @@ namespace elecciones_sub_2021_app_backend_core
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    // webBuilder.UseUrls("http://0.0.0.0:5010");  // DESARROLLO
+                    webBuilder.UseUrls("http://0.0.0.0:5010");  // DESARROLLO
                     webBuilder.UseStartup<Startup>();
                 });
     }

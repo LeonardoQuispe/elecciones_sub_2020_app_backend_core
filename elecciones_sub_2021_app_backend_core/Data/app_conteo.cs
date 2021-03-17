@@ -102,6 +102,10 @@ namespace elecciones_sub_2021_app_backend_core.Data
                 {
                     foreach (AppPostConteo conteo in datos.conteos)
                     {
+
+                        votosValidos = 0;
+                        votosNulos = 0;
+                        votosBlancos = 0;  
                         int accion = 0;
                         foreach (AppPostPartido partido in conteo.votosPartidos)
                         {
